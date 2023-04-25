@@ -7,6 +7,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Validator\IsValidNumeroTelefono;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -64,6 +65,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "groups"={"centroTrabajo:write"},
  *          "swagger_definition_name"="Write"
  *      },
+ *      attributes={"pagination_client_items_per_page"=true ,  "pagination_client_enabled"=true},
  * )
  * @ApiFilter(
  *      SearchFilter::class,
@@ -164,6 +166,7 @@ class CentrosTrabajo
      * @ORM\Column(name="telefono", type="string", length=45, nullable=false)
      * @Groups({"centroTrabajo:read", "centroTrabajo:write"})
      * @Assert\NotBlank(message="El Campo Telefono No Puede Estar En Blanco")
+     * @IsValidNumeroTelefono()
      */
     private $telefono;
 

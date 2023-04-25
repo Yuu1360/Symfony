@@ -64,6 +64,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "groups"={"empleados:write"},
  *          "swagger_definition_name"="Write"
  *      },
+ *      attributes={"pagination_client_items_per_page"=true ,  "pagination_client_enabled"=true},
  * )
  * @ApiFilter(
  *      SearchFilter::class,
@@ -201,6 +202,7 @@ class Empleados
      * @ORM\Column(name="fecha_nacimiento", type="date", nullable=true)
      * @Groups({"empleados:read", "empleados:write"})
      * @Assert\NotBlank(message="El Campo Fecha de Nacimiento No Puede Estar En Blanco")
+     * @Assert\Type("\DateTimeInterface") 
      */
     private $fechaNacimiento;
 

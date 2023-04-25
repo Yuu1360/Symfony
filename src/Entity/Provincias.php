@@ -52,6 +52,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "groups"={"provincias:write"},
  *          "swagger_definition_name"="Write"
  *      },
+ *      attributes={"pagination_client_items_per_page"=true ,  "pagination_client_enabled"=true},
  * )
  * @ApiFilter(
  *      SearchFilter::class,
